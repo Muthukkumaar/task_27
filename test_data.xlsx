@@ -1,0 +1,17 @@
+import pandas as pd
+from datetime import datetime
+
+# Create a dataframe
+data = {
+    "Test ID": [1, 2, 3, 4, 5],
+    "Username": ["Admin", "invalidUser1", "invalidUser2", "Admin", "Admin"],
+    "Password": ["admin123", "wrongPass1", "wrongPass2", "admin123", "admin123"],
+    "Date": [datetime.now().date()] * 5,
+    "Time of Test": [datetime.now().time()] * 5,
+    "Name of Tester": ["Tester1"] * 5,
+    "Test Result": ["" for _ in range(5)]
+}
+
+df = pd.DataFrame(data)
+# Save the dataframe to an Excel file
+df.to_excel("test_data.xlsx", index=False)
